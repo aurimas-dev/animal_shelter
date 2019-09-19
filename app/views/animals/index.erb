@@ -1,0 +1,10 @@
+<h2>All Animals</h2>
+
+<ul>
+  <% @animals.each() do |animal| %>
+    <li>
+      <p>Name: <%= animal.name() %></p>
+      <p>Admission date:<%= animal.admission_date() %></p>
+    </li>
+  <% end %>
+</ul>

@@ -6,5 +6,6 @@ require_relative('../models/Owner.rb')
 also_reload('../models/*')
 
 get '/owners' do
+  @owners = Owner.all()
   erb(:"owners/index")
 end

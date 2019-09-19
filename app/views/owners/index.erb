@@ -1,0 +1,9 @@
+<h2>All Owners</h2>
+
+<ul>
+  <% @owners.each() do |owner| %>
+    <li>
+      <p>Name: <%= owner.name() %></p>
+    </li>
+  <% end %>
+</ul>
