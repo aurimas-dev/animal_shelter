@@ -18,6 +18,7 @@ end
 
 get '/animals/:id' do
   @animal = Animal.find_by_id(params['id'].to_i())
+  @owner = Owner.find_by_id(@animal.owner_id())
   erb(:"animals/show")
 end
 
