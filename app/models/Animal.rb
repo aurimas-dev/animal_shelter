@@ -44,6 +44,8 @@ class Animal
       @owner_id = nil
     else
       @owner_id = owner_id
+      @available_for_adoption = false
+      update()
     end
     update_owner_id()
   end
