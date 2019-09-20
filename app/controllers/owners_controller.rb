@@ -3,11 +3,11 @@ require_relative('../models/Owner.rb')
 
 get '/owners' do
   @owners = Owner.all()
-  erb(:"owners/index")
+  erb(:"/owners/index")
 end
 
 get '/owners/new' do
-  erb(:"owners/new")
+  erb(:"/owners/new")
 end
 
 post '/owners' do
@@ -19,5 +19,5 @@ end
 get '/owners/:id' do
   @owner = Owner.find_by_id(params["id"])
   @owned_animal = @owner.get_owned_animal()
-  erb(:"owners/show")
+  erb(:"/owners/show")
 end
