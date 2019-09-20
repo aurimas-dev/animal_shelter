@@ -19,3 +19,19 @@ post '/animals' do
   animal.save()
   redirect to('/animals')
 end
+
+get '/animals/:id' do
+  @animal = Animal.find_by_id(params['id'].to_i())
+  erb(:"animals/show")
+end
+
+get '/animals/:id/edit' do
+  @animal = Animal.find_by_id(params['id'].to_i())
+  erb(:"animals/edit")
+end
+
+post '/animals/:id' do
+  animal = Animal.new(params)
+  animal.update()
+  redirect to("/animals/#{params['id']}")
+end

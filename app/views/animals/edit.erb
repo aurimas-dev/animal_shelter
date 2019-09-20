@@ -1,0 +1,20 @@
+<h2>Edit <%= @animal.name %></h2>
+
+<form action="/animals/<%= @animal.id %>" method="post">
+  <label for="name">Name: </label>
+  <input id="name" type="text" name="name" value="<%= @animal.name() %>">
+
+  <label for="type">Type: </label>
+  <input id="type" type="text" name="type" value="<%= @animal.type() %>">
+
+  <label for="admission-date">Admission date: </label>
+  <input id="admission-date" type="text" name="admission_date" value="<%= @animal.admission_date() %>">
+
+  <label for="available-for-adoption">Available for adoption: </label>
+  <select id="available-for-adoption" name="available_for_adoption">
+    <option value="true" <%= "selected" if @animal.available_for_adoption() == 't' %>>Yes</option>
+    <option value="false" <%= "selected" if @animal.available_for_adoption() == 'f' %>>No</option>
+  </select>
+
+  <input type="submit" value="Save">
+</form>

@@ -1,0 +1,9 @@
+<h2>Showing <%= @animal.name %></h2>
+
+<div class="">
+  <p>Name: <%= @animal.name() %></p>
+  <p>Type: <%= @animal.type() %></p>
+  <p>Admission date: <%= @animal.admission_date() %></p>
+  <p>Available for adoption: <%= @animal.available_for_adoption() == "t" ? "Yes" : "No" %></p>
+  <p>Owner <%= @animal.owner_id() %></p>
+</div>

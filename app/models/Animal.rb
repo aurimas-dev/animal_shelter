@@ -2,7 +2,7 @@ require_relative('../db/SqlRunner.rb')
 
 class Animal
 
-  attr_reader :id
+  attr_reader :id, :owner_id
   attr_accessor :name, :type, :admission_date, :available_for_adoption
 
   def initialize(options)
@@ -23,7 +23,7 @@ class Animal
 
   def update()
     sql = "UPDATE animals SET (name, type, admission_date, available_for_adoption) = ($1, $2, $3, $4) WHERE id = $5"
-    values = [@name, @type, @admision_date, @available_for_adoption, @id]
+    values = [@name, @type, @admission_date, @available_for_adoption, @id]
     SqlRunner.run(sql, values)
   end
 
