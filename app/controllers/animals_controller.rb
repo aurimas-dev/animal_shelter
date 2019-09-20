@@ -48,3 +48,8 @@ get '/animals/filters/available' do
   @animals = Animal.all_available_for_adoption()
   erb(:"/animals/filters/available")
 end
+
+get '/animals/filters/unavailable' do
+  @animals = Animal.all_unavailable_for_adoption()
+  erb(:"/animals/filters/unavailable")
+end

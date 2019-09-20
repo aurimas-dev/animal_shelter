@@ -103,6 +103,12 @@ class Animal
     return results.map() {|animal| Animal.new(animal)}
   end
 
+  def self.all_unavailable_for_adoption()
+    sql = "SELECT * FROM animals WHERE available_for_adoption = false"
+    results = SqlRunner.run(sql)
+    return results.map() {|animal| Animal.new(animal)}
+  end
+
   def self.get_types()
     sql = "SELECT DISTINCT type FROM animals"
     results = SqlRunner.run(sql)
