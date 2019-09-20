@@ -6,6 +6,9 @@ require_relative('../models/Animal.rb')
 Owner.delete_all()
 Animal.delete_all()
 
+owner0 = Owner.new({"name" => "Shelter"})
+owner0.save()
+
 owner1 = Owner.new({"name" => "Aurimas"})
 owner1.save()
 

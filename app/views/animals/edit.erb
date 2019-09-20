@@ -18,7 +18,7 @@
 
   <label for="owner"></label>
   <select id="owner" name="owner_id">
-    <option value="0" <%= "selected" if @animal.owner_id == nil %>>No owner</option>
+    <option value="" <%= "selected" if @animal.owner_id == nil %>>No owner</option>
     <% @owners.each do |owner|%>
       <option value="<%= owner.id %>" <%= "selected" if owner.id == @animal.owner_id %>><%= owner.name %></option>
     <% end %>

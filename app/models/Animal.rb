@@ -22,8 +22,14 @@ class Animal
   end
 
   def update()
-    sql = "UPDATE animals SET (name, type, admission_date, available_for_adoption, owner_id) = ($1, $2, $3, $4, $5) WHERE id = $6"
-    values = [@name, @type, @admission_date, @available_for_adoption, @owner_id, @id]
+    sql = "UPDATE animals SET (name, type, admission_date, available_for_adoption) = ($1, $2, $3, $4) WHERE id = $5"
+    values = [@name, @type, @admission_date, @available_for_adoption, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def update_owner_id()
+    sql = "UPDATE animals SET owner_id = $1 WHERE id = $2"
+    values = [@owner_id, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -35,7 +41,7 @@ class Animal
 
   def assign_owner(owner_id)
     @owner_id = owner_id
-    update()
+    update_owner_id()
   end
 
   def has_owner?()
