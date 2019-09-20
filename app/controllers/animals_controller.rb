@@ -43,3 +43,8 @@ post '/animals/:id/delete' do
   animal.delete()
   redirect to("/animals")
 end
+
+get '/animals/filters/available' do
+  @animals = Animal.all_available_for_adoption()
+  erb(:"/animals/filters/available")
+end
