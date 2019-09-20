@@ -6,9 +6,6 @@ require_relative('../models/Animal.rb')
 Owner.delete_all()
 Animal.delete_all()
 
-owner0 = Owner.new({"name" => "Shelter"})
-owner0.save()
-
 owner1 = Owner.new({"name" => "Aurimas"})
 owner1.save()
 
@@ -62,6 +59,7 @@ animal5 = Animal.new({
 animal5.save()
 
 animal1.assign_owner(owner1.id())
+# animal1.assign_owner(nil)
 
 binding.pry()
 nil

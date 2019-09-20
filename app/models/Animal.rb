@@ -40,12 +40,16 @@ class Animal
   end
 
   def assign_owner(owner_id)
-    @owner_id = owner_id
+    if (owner_id == 'nil')
+      @owner_id = nil
+    else
+      @owner_id = owner_id
+    end
     update_owner_id()
   end
 
   def has_owner?()
-    if (@owner_id != 0)
+    if (@owner_id)
       return true
     end
     return false
@@ -66,7 +70,11 @@ class Animal
     sql = "SELECT * FROM animals WHERE id = $1"
     values = [id]
     results = SqlRunner.run(sql, values)
-    return Animal.new(results.first())
+    result = results.first()
+    if (result != nil)
+      return Animal.new(result)
+    end
+    return nil
   end
 
   def self.find_by_type(type)

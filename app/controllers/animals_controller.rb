@@ -1,3 +1,5 @@
+require('pry-byebug')
+
 require_relative('../models/Animal.rb')
 require_relative('../models/Owner.rb')
 
@@ -24,13 +26,15 @@ end
 
 get '/animals/:id/edit' do
   @animal = Animal.find_by_id(params['id'].to_i())
-  @owners = Owner.all()
+  @owners = Owner.all_without_animal()
+  @owners.push(Owner.find_by_id(@animal.owner_id())) if @animal.has_owner?()
   erb(:"animals/edit")
 end
 
 post '/animals/:id' do
   animal = Animal.new(params)
   animal.update()
+  animal.assign_owner(params['owner_id'])
   redirect to("/animals/#{params['id']}")
 end
 

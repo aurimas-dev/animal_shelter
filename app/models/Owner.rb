@@ -56,4 +56,9 @@ class Owner
     SqlRunner.run(sql)
   end
 
+  def self.all_without_animal()
+    owners = Owner.all()
+    return owners.select() {|owner| owner.get_owned_animal() == nil}
+  end
+
 end
