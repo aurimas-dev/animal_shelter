@@ -35,3 +35,9 @@ post '/animals/:id' do
   animal.update()
   redirect to("/animals/#{params['id']}")
 end
+
+post '/animals/:id/delete' do
+  animal = Animal.find_by_id(params['id'].to_i())
+  animal.delete()
+  redirect to("/animals")
+end
