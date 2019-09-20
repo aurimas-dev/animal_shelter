@@ -58,5 +58,7 @@ animal5 = Animal.new({
 })
 animal5.save()
 
+animal1.assign_owner(owner1.id())
+
 binding.pry()
 nil

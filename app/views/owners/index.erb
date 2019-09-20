@@ -4,6 +4,7 @@
   <% @owners.each() do |owner| %>
     <li>
       <p>Name: <%= owner.name() %></p>
+      <a href="/owners/<%= owner.id %>">Show</a>
     </li>
   <% end %>
 </ul>

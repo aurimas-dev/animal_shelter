@@ -11,7 +11,7 @@ class Animal
     @type = options['type']
     @admission_date = options['admission_date']
     @available_for_adoption = options['available_for_adoption']
-    @owner_id = options['owner_id'].to_i()
+    @owner_id = options['owner_id'].to_i() if options['owner_id']
   end
 
   def save()
@@ -22,8 +22,8 @@ class Animal
   end
 
   def update()
-    sql = "UPDATE animals SET (name, type, admission_date, available_for_adoption) = ($1, $2, $3, $4) WHERE id = $5"
-    values = [@name, @type, @admission_date, @available_for_adoption, @id]
+    sql = "UPDATE animals SET (name, type, admission_date, available_for_adoption, owner_id) = ($1, $2, $3, $4, $5) WHERE id = $6"
+    values = [@name, @type, @admission_date, @available_for_adoption, @owner_id, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -68,6 +68,17 @@ class Animal
     values = [type]
     results = SqlRunner.run(sql, values)
     return results.map() {|animal| Animal.new(animal)}
+  end
+
+  def self.find_by_owner(owner_id)
+    sql = "SELECT * FROM animals WHERE owner_id = $1"
+    values = [owner_id]
+    results = SqlRunner.run(sql, values)
+    result = results.first()
+    if (result != nil)
+      return Animal.new(result)
+    end
+    return nil
   end
 
   def self.all_available_for_adoption()
