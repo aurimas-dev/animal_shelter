@@ -18,6 +18,12 @@ post '/animals' do
   redirect to('/animals')
 end
 
+get '/animals/search' do
+  @search = params['type']
+  @animals = Animal.find_by_type(@search)
+  erb(:"/animals/search")
+end
+
 get '/animals/:id' do
   @animal = Animal.find_by_id(params['id'].to_i())
   @owner = Owner.find_by_id(@animal.owner_id())
