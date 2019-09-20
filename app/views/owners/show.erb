@@ -2,5 +2,11 @@
 
 <div class="">
   <p>Name: <%= @owner.name() %></p>
-  <p>Owned animal: <%= @owned_animal ? @owned_animal.name : "No found" %> </p>
+  <p>Owned animal:
+    <% if (@owned_animal) %>
+      <a href="/animals/<%= @owned_animal.id() %>"><%= @owned_animal.name() %></a>
+    <% else %>
+      None
+    <% end %>
+  </p>
 </div>
