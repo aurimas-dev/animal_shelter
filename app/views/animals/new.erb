@@ -7,23 +7,33 @@
   </ul>
 </nav>
 
-<h2>Add New Animal</h2>
+<div class="title">
+  <h2 class="title__heading">Add New Animal</h2>
+</div>
 
-<form action="/animals" method="post">
-  <label for="name">Name: </label>
-  <input id="name" type="text" name="name" value="">
+<form class="form" action="/animals" method="post">
+  <div class="form__input">
+    <label for="name">Name *</label>
+    <input id="name" type="text" name="name" value="" required>
+  </div>
 
-  <label for="type">Type: </label>
-  <input id="type" type="text" name="type" value="">
+  <div class="form__input">
+    <label for="type">Type </label>
+    <input id="type" type="text" name="type" value="">
+  </div>
 
-  <label for="admission-date">Admission date: </label>
-  <input id="admission-date" type="text" name="admission_date" value="">
+  <div class="form__input">
+    <label for="admission-date">Admission date *</label>
+    <input id="admission-date" type="text" name="admission_date" value="" required>
+  </div>
 
-  <label for="available-for-adoption">Available for adoption: </label>
-  <select id="available-for-adoption" name="available_for_adoption">
-    <option value="true">Yes</option>
-    <option value="false">No</option>
-  </select>
+  <div class="form__input">
+    <label for="available-for-adoption">Available for adoption </label>
+    <select id="available-for-adoption" name="available_for_adoption">
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
+  </div>
 
-  <input type="submit" name="" value="Add Animal">
+  <input class="btn" type="submit" name="" value="Add Animal">
 </form>

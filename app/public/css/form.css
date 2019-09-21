@@ -1,0 +1,20 @@
+.form {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.form__input {
+  margin-bottom: 15px;
+}
+
+.form__input label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form__input input,
+.form__input select {
+  height: 18px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
