@@ -9,12 +9,20 @@
   <h2 class="title__heading">All Owners</h2>
 </div>
 
-<ul>
-  <% @owners.each() do |owner| %>
-    <li>
-      <p>Name: <%= owner.name() %></p>
-      <p>Adopted animal: <%= owner.get_owned_animal() ? owner.get_owned_animal().name() : "None" %></p>
-      <a href="/owners/<%= owner.id %>">Show</a>
-    </li>
+<div class="grid">
+  <% if @owners.any? %>
+    <% @owners.each() do |owner| %>
+      <article class="grid__item profile-a">
+        <div class="profile-a__body">
+          <h3 class="profile-a__name" ><%= owner.name() %></h3>
+          <p>Adopted animal: <%= owner.get_owned_animal() ? owner.get_owned_animal().name() : "None" %></p>
+        </div>
+        <div class="profile-a__footer">
+          <a class="btn" href="/owners/<%= owner.id() %>">Show</a>
+        </div>
+      </article>
+    <% end %>
+  <% else %>
+    <p>No results found.</p>
   <% end %>
-</ul>
+</div>
