@@ -1,9 +1,11 @@
-<h2>All Animals</h2>
+<div class="title">
+  <h2 class="title__heading">All Animals</h2>
 
-<div class="">
-  <form class="" action="/animals/search" method="get">
-    <input type="text" name="type" placeholder="search type">
-  </form>
+  <div class="title__search">
+    <form class="" action="/animals/search" method="get">
+      <input class="title__search-input" type="text" name="type" placeholder="Search type...">
+    </form>
+  </div>
 </div>
 
 <div class="grid">
@@ -28,6 +30,6 @@
       </article>
     <% end %>
   <% else %>
-    No results found.
+    <p>No results found.</p>
   <% end %>
 </div>

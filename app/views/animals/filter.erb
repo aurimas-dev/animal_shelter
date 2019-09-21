@@ -1,4 +1,6 @@
-<h2><%= @title %></h2>
+<div class="title">
+  <h2 class="title__heading"><%= @title %></h2>
+</div>
 
 <div class="grid">
   <% if @animals.any? %>
@@ -20,8 +22,8 @@
           </form>
         </div>
       </article>
-    <% end %>
+      <% end %>
   <% else %>
-    No results found.
+    <p>No results found.</p>
   <% end %>
 </div>
