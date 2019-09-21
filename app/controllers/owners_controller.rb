@@ -18,7 +18,7 @@ end
 
 get '/owners/filters/available' do
   @owners = Owner.all_available()
-  @title = "Available owners"
+  @title = "Available Owners"
   erb(:"/owners/filter")
 end
 

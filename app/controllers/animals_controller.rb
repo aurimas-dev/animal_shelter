@@ -52,18 +52,18 @@ end
 
 get '/animals/filters/unavailable' do
   @animals = Animal.all_unavailable_for_adoption()
-  @title = "Unavailable animals"
+  @title = "Unavailable Animals"
   erb(:"/animals/filter")
 end
 
 get '/animals/filters/available' do
   @animals = Animal.all_available_for_adoption()
-  @title = "Available animals"
+  @title = "Available Animals"
   erb(:"/animals/filter")
 end
 
 get '/animals/filters/adopted' do
   @animals = Animal.all_adopted()
-  @title = "Adopted animals"
+  @title = "Adopted Animals"
   erb(:"/animals/filter")
 end
