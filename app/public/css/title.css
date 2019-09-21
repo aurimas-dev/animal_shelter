@@ -16,9 +16,17 @@
   margin-top: 12px;
   margin-bottom: 10px;
 }
+
 .title__search-input {
   height: 21px;
   padding-left: 10px;
   padding-right: 10px;
   width: 120px;
+}
+
+@media all and (max-width: 480px) {
+  .title__search {
+    display: block;
+    position: initial;
+  }
 }
