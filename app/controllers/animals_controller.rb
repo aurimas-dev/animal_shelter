@@ -32,7 +32,7 @@ end
 
 get '/animals/:id/edit' do
   @animal = Animal.find_by_id(params['id'].to_i())
-  @owners = Owner.all_without_animal()
+  @owners = Owner.all_available()
   @owners.push(Owner.find_by_id(@animal.owner_id())) if @animal.has_owner?()
   erb(:"/animals/edit")
 end
@@ -50,12 +50,20 @@ post '/animals/:id/delete' do
   redirect to("/animals")
 end
 
-get '/animals/filters/available' do
-  @animals = Animal.all_available_for_adoption()
-  erb(:"/animals/filters/available")
-end
-
 get '/animals/filters/unavailable' do
   @animals = Animal.all_unavailable_for_adoption()
-  erb(:"/animals/filters/unavailable")
+  @title = "Unavailable animals"
+  erb(:"/animals/filter")
+end
+
+get '/animals/filters/available' do
+  @animals = Animal.all_available_for_adoption()
+  @title = "Available animals"
+  erb(:"/animals/filter")
+end
+
+get '/animals/filters/adopted' do
+  @animals = Animal.all_adopted()
+  @title = "Adopted animals"
+  erb(:"/animals/filter")
 end

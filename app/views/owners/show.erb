@@ -2,7 +2,7 @@
 
 <div class="">
   <p>Name: <%= @owner.name() %></p>
-  <p>Owned animal:
+  <p>Adopted animal:
     <% if (@owned_animal) %>
       <a href="/animals/<%= @owned_animal.id() %>"><%= @owned_animal.name() %></a>
     <% else %>

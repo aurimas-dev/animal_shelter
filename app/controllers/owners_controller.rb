@@ -16,6 +16,12 @@ post '/owners' do
   redirect to('/owners')
 end
 
+get '/owners/filters/available' do
+  @owners = Owner.all_available()
+  @title = "Available owners"
+  erb(:"/owners/filter")
+end
+
 get '/owners/:id' do
   @owner = Owner.find_by_id(params["id"])
   @owned_animal = @owner.get_owned_animal()

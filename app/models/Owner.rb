@@ -45,18 +45,18 @@ class Owner
     return nil
   end
 
+  def self.delete_all()
+    sql = "DELETE FROM owners"
+    SqlRunner.run(sql)
+  end
+
   def self.all()
     sql = "SELECT * FROM owners"
     results = SqlRunner.run(sql)
     return results.map() {|owner| Owner.new(owner)}
   end
 
-  def self.delete_all()
-    sql = "DELETE FROM owners"
-    SqlRunner.run(sql)
-  end
-
-  def self.all_without_animal()
+  def self.all_available()
     owners = Owner.all()
     return owners.select() {|owner| owner.get_owned_animal() == nil}
   end

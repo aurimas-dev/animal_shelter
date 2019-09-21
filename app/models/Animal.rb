@@ -59,12 +59,6 @@ class Animal
     return false
   end
 
-  def self.all()
-    sql = "SELECT * FROM animals"
-    results = SqlRunner.run(sql)
-    return results.map() {|animal| Animal.new(animal)}
-  end
-
   def self.delete_all()
     sql = "DELETE FROM animals"
     SqlRunner.run(sql)
@@ -99,14 +93,26 @@ class Animal
     return nil
   end
 
+  def self.all()
+    sql = "SELECT * FROM animals"
+    results = SqlRunner.run(sql)
+    return results.map() {|animal| Animal.new(animal)}
+  end
+
+  def self.all_unavailable_for_adoption()
+    sql = "SELECT * FROM animals WHERE owner_id IS NULL AND available_for_adoption = false"
+    results = SqlRunner.run(sql)
+    return results.map() {|animal| Animal.new(animal)}
+  end
+
   def self.all_available_for_adoption()
     sql = "SELECT * FROM animals WHERE available_for_adoption = true"
     results = SqlRunner.run(sql)
     return results.map() {|animal| Animal.new(animal)}
   end
 
-  def self.all_unavailable_for_adoption()
-    sql = "SELECT * FROM animals WHERE available_for_adoption = false"
+  def self.all_adopted()
+    sql = "SELECT * FROM animals WHERE owner_id IS NOT NULL"
     results = SqlRunner.run(sql)
     return results.map() {|animal| Animal.new(animal)}
   end
