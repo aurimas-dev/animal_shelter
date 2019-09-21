@@ -10,6 +10,14 @@
   justify-content: center;
 }
 
+.navbar__list--column {
+  display: block;
+}
+
+.navbar__list {
+
+}
+
 .navbar__list--a {
   margin-top: -6px;
 }
@@ -23,6 +31,9 @@
   margin: 5px;
 }
 
-.navbar__li-a {
+.navbar__li--column {
+  display: block;
+}
+.navbar__li-anchor {
 
 }
