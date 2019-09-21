@@ -1,4 +1,4 @@
-<h2>Search type: </h2>
+<h2>Search: <%= @search %></h2>
 
 <div class="">
   <form class="" action="/animals/search" method="get">
@@ -6,23 +6,28 @@
   </form>
 </div>
 
-<div class="">
-  <% if @animals.any?() %>
-    <ul>
-      <% @animals.each() do |animal| %>
-        <li>
-          <p>Name: <%= animal.name() %></p>
+<div class="grid">
+  <% if @animals.any? %>
+    <% @animals.each() do |animal| %>
+      <article class="grid__item profile-a">
+        <div class="profile-a__header">
+          <img class="profile-a__img" src="<%= animal.image_url() ? animal.image_url() : '/images/default.jpeg' %>" alt="<%= animal.name() %> profile photo">
+        </div>
+        <div class="profile-a__body">
+          <h3 class="profile-a__name" ><%= animal.name() %></h3>
           <p>Admission date: <%= animal.admission_date() %></p>
           <p>Adopted: <%= animal.has_owner?() ? "Yes" : "No" %></p>
-          <a href="/animals/<%= animal.id %>">Show</a>
-          <a href="/animals/<%= animal.id %>/edit">Edit</a>
+        </div>
+        <div class="profile-a__footer">
+          <a class="btn" href="/animals/<%= animal.id %>">Show</a>
+          <a class="btn" href="/animals/<%= animal.id %>/edit">Edit</a>
           <form style="display: inline" action="/animals/<%= animal.id %>/delete" method="post">
-            <input type="submit" value="Delete">
+            <input class="btn" type="submit" value="Delete">
           </form>
-        </li>
-      <% end %>
-    </ul>
+        </div>
+      </article>
+    <% end %>
   <% else %>
-    <p>No results found for <%= @search %> 🐷</p>
+    No results found.
   <% end %>
 </div>

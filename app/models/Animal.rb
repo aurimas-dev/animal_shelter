@@ -5,11 +5,12 @@ require_relative('../db/SqlRunner.rb')
 class Animal
 
   attr_reader :id, :owner_id
-  attr_accessor :name, :type, :admission_date, :available_for_adoption
+  attr_accessor :name, :type, :image_url, :admission_date, :available_for_adoption
 
   def initialize(options)
     @id = options['id'].to_i() if options['id']
     @name = options['name']
+    @image_url = options['image_url']
     @type = options['type']
     @admission_date = options['admission_date']
     @available_for_adoption = options['available_for_adoption']

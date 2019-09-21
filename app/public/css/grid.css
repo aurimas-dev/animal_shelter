@@ -1,0 +1,15 @@
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.grid__item {
+  flex: 1;
+}

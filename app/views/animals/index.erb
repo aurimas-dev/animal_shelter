@@ -6,17 +6,28 @@
   </form>
 </div>
 
-<ul>
-  <% @animals.each() do |animal| %>
-    <li>
-      <p>Name: <%= animal.name() %></p>
-      <p>Admission date: <%= animal.admission_date() %></p>
-      <p>Adopted: <%= animal.has_owner?() ? "Yes" : "No" %></p>
-      <a href="/animals/<%= animal.id %>">Show</a>
-      <a href="/animals/<%= animal.id %>/edit">Edit</a>
-      <form style="display: inline" action="/animals/<%= animal.id %>/delete" method="post">
-        <input type="submit" value="Delete">
-      </form>
-    </li>
+<div class="grid">
+  <% if @animals.any? %>
+    <% @animals.each() do |animal| %>
+      <article class="grid__item profile-a">
+        <div class="profile-a__header">
+          <img class="profile-a__img" src="<%= animal.image_url() ? animal.image_url() : '/images/default.jpeg' %>" alt="<%= animal.name() %> profile photo">
+        </div>
+        <div class="profile-a__body">
+          <h3 class="profile-a__name" ><%= animal.name() %></h3>
+          <p>Admission date: <%= animal.admission_date() %></p>
+          <p>Adopted: <%= animal.has_owner?() ? "Yes" : "No" %></p>
+        </div>
+        <div class="profile-a__footer">
+          <a class="btn" href="/animals/<%= animal.id %>">Show</a>
+          <a class="btn" href="/animals/<%= animal.id %>/edit">Edit</a>
+          <form style="display: inline" action="/animals/<%= animal.id %>/delete" method="post">
+            <input class="btn" type="submit" value="Delete">
+          </form>
+        </div>
+      </article>
+    <% end %>
+  <% else %>
+    No results found.
   <% end %>
-</ul>
+</div>
