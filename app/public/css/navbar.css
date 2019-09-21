@@ -1,0 +1,28 @@
+.navbar {
+
+}
+
+.navbar__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.navbar__list--a {
+  margin-top: -6px;
+}
+
+.navbar__list--b {
+
+}
+
+.navbar__li {
+  display: inline-block;
+  margin: 5px;
+}
+
+.navbar__li-a {
+
+}
