@@ -11,7 +11,7 @@
   <h2 class="title__heading">Edit <%= @animal.name %></h2>
 </div>
 
-<form class="form" action="/animals" method="post">
+<form class="form" action="/animals/<%= @animal.id %>" method="post">
   <div class="form__input">
     <label for="name">Name *</label>
     <input id="name" type="text" name="name" value="<%= @animal.name() %>" required>
