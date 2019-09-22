@@ -19,6 +19,7 @@
         </div>
         <div class="profile__footer">
           <a class="btn" href="/owners/<%= owner.id() %>">Show</a>
+          <a class="btn" href="/owners/<%= owner.id %>/edit">Edit</a>
           <form style="display: inline" action="/owners/<%= owner.id %>/delete" method="post">
             <input class="btn" type="submit" value="Delete">
           </form>

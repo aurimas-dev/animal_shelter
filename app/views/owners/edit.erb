@@ -1,0 +1,19 @@
+<nav class="navbar">
+  <ul class="navbar__list navbar__list-b">
+    <li class="navbar__li"><a class="navbar__li-anchor btn-nav-b" href="/owners/new">New</a></li>
+    <li class="navbar__li"><a class="navbar__li-anchor btn-nav-b" href="/owners/filters/available">Available</a></li>
+  </ul>
+</nav>
+
+<div class="title">
+  <h2 class="title__heading">Add New Owner</h2>
+</div>
+
+<form class="form" action="/owners/<%= @owner.id() %>" method="post">
+  <div class="form__input">
+    <label for="name">Name *</label>
+    <input id="name" type="text" name="name" value="<%= @owner.name() %>" required>
+  </div>
+
+  <input class="btn" type="submit" name="" value="Save Changes">
+</form>

@@ -28,8 +28,19 @@ get '/owners/:id' do
   erb(:"/owners/show")
 end
 
+post '/owners/:id' do
+  owner = Owner.new(params)
+  owner.update()
+  redirect to("/owners/#{params['id']}")
+end
+
 post '/owners/:id/delete' do
   owner = Owner.find_by_id(params['id'].to_i())
   owner.delete()
   redirect to("/owners")
+end
+
+get '/owners/:id/edit' do
+  @owner = Owner.find_by_id(params['id'].to_i())
+  erb(:"/owners/edit")
 end
