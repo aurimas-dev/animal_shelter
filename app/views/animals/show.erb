@@ -7,9 +7,11 @@
   </ul>
 </nav>
 
-<h2>Show <%= @animal.name %></h2>
+<div class="title">
+  <h2 class="title__heading">Show Animal: <%= @animal.name %></h2>
+</div>
 
-<div class="">
+<div class="profile-full">
   <p>Name: <%= @animal.name() %></p>
   <p>Type: <%= @animal.type() %></p>
   <p>Admission date: <%= @animal.admission_date() %></p>

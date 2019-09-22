@@ -6,10 +6,10 @@
 </nav>
 
 <div class="title">
-  <h2 class="title__heading">Show <%= @owner.name() %></h2>
+  <h2 class="title__heading">Show Owner: <%= @owner.name() %></h2>
 </div>
 
-<div class="">
+<div class="profile-full">
   <p>Name: <%= @owner.name() %></p>
   <p>Adopted animal:
     <% if (@owned_animal) %>
