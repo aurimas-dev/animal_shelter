@@ -1,4 +1,4 @@
-.profile-a {
+.profile {
   border: 1px solid #ccc;
   box-sizing: border-box;
   max-width: 200px;
@@ -8,27 +8,27 @@
   background-color: white;
 }
 
-.profile-a__header {
+.profile__header {
 
 }
 
-.profile-a__img {
+.profile__img {
   width: 100%;
   height: auto;
   display: inline-block;
 }
 
-.profile-a__body {
+.profile__body {
   padding: 10px 20px;
 }
 
-.profile-a__name {
+.profile__name {
   margin: 0;
   margin-bottom: 10px;
   font-size: 23px;
 }
 
-.profile-a__footer {
+.profile__footer {
   padding: 10px;
   padding-top: 0;
 }

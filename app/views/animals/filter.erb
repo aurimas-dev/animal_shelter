@@ -14,16 +14,16 @@
 <div class="grid">
   <% if @animals.any? %>
     <% @animals.each() do |animal| %>
-      <article class="grid__item profile-a">
-        <div class="profile-a__header">
-          <img class="profile-a__img" src="<%= animal.image_url() ? animal.image_url() : '/images/default.jpeg' %>" alt="<%= animal.name() %> profile photo">
+      <article class="grid__item profile">
+        <div class="profile__header">
+          <img class="profile__img" src="<%= animal.image_url() ? animal.image_url() : '/images/default.jpeg' %>" alt="<%= animal.name() %> profile photo">
         </div>
-        <div class="profile-a__body">
-          <h3 class="profile-a__name" ><%= animal.name() %></h3>
+        <div class="profile__body">
+          <h3 class="profile__name" ><%= animal.name() %></h3>
           <p>Admission date: <%= animal.admission_date() %></p>
           <p>Adopted: <%= animal.has_owner?() ? "Yes" : "No" %></p>
         </div>
-        <div class="profile-a__footer">
+        <div class="profile__footer">
           <a class="btn" href="/animals/<%= animal.id %>">Show</a>
           <a class="btn" href="/animals/<%= animal.id %>/edit">Edit</a>
           <form style="display: inline" action="/animals/<%= animal.id %>/delete" method="post">
