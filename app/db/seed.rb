@@ -15,13 +15,6 @@ owner2.save()
 owner3 = Owner.new({"name" => "Jordan"})
 owner3.save()
 
-# Group 0: Adam, Christopher
-# Group 1: Nathan, Sreenandini
-# Group 2: Eric, Stan
-# Group 3: Kevin, Rebecca
-# Group 4: Aurimas, Sarah
-# Group 5: Paul, Instructor
-
 animal1 = Animal.new({
   "name" => "Adam",
   "type" => "cat",
