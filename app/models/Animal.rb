@@ -119,7 +119,7 @@ class Animal
   end
 
   def self.get_types()
-    sql = "SELECT DISTINCT type FROM animals"
+    sql = "SELECT DISTINCT type FROM animals ORDER BY type ASC"
     results = SqlRunner.run(sql)
     return results.map() {|animal| animal["type"]}
   end

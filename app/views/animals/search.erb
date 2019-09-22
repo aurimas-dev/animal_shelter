@@ -17,8 +17,9 @@
   </div>
 </div>
 
-<div class="grid">
-  <% if @animals.any? %>
+
+<% if @animals.any? %>
+  <div class="grid">
     <% @animals.each() do |animal| %>
       <article class="grid__item profile">
         <div class="profile__header">
@@ -38,7 +39,14 @@
         </div>
       </article>
     <% end %>
-  <% else %>
-    <p>No results found.</p>
-  <% end %>
-</div>
+  </div>
+<% else %>
+  <p class="text-center">No results found. Maybe you were looking for:</p>
+  <ul class="search-suggestions text-center">
+    <% @types.each() do |type| %>
+      <li class="search-suggestions__li">
+        <a class="search-suggestions__li-anchor" href="/animals/search?type=<%= type %>"><%= type %></a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

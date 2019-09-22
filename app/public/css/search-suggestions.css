@@ -1,0 +1,15 @@
+.search-suggestions {
+  list-style: none;
+  display: block;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.search-suggestions__li {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.search-suggestions__li-anchor {
+
+}
