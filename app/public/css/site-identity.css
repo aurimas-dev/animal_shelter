@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   border-bottom: 2px solid #333;
+  background-color: #fefefe;
 }
 
 .site-identity__name {
