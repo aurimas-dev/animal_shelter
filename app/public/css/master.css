@@ -6,6 +6,11 @@ body {
   margin-bottom: 100px;
 }
 
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
 .text-center {
   text-align: center;
 }
