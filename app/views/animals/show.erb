@@ -12,7 +12,9 @@
 </div>
 
 <div class="profile-full">
-  <img src="<%= @animal.image_url() %>" alt="<%= @animal.name %> profile">
+  <img class="profile__img"
+    src="<%= @animal.image_url().nil?() || @animal.image_url().empty? ? '/images/default.jpeg' : @animal.image_url() %>"
+    alt="<%= @animal.name() %> profile photo">
   <p>Name: <%= @animal.name() %></p>
   <p>Type: <%= @animal.type() %></p>
   <p>Admission date: <%= @animal.admission_date() %></p>

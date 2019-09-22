@@ -16,7 +16,9 @@
     <% @animals.each() do |animal| %>
       <article class="grid__item profile">
         <div class="profile__header">
-          <img class="profile__img" src="<%= animal.image_url() ? animal.image_url() : '/images/default.jpeg' %>" alt="<%= animal.name() %> profile photo">
+          <img class="profile__img"
+            src="<%= animal.image_url().nil?() || animal.image_url().empty? ? '/images/default.jpeg' : animal.image_url() %>"
+            alt="<%= animal.name() %> profile photo">
         </div>
         <div class="profile__body">
           <h3 class="profile__name" ><%= animal.name() %></h3>
