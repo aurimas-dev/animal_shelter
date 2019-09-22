@@ -18,15 +18,15 @@ class Animal
   end
 
   def save()
-    sql = "INSERT INTO animals (name, type, admission_date, available_for_adoption) VALUES ($1, $2, $3, $4) RETURNING id"
-    values = [@name, @type, @admission_date, @available_for_adoption]
+    sql = "INSERT INTO animals (name, type, image_url, admission_date, available_for_adoption) VALUES ($1, $2, $3, $4, $5) RETURNING id"
+    values = [@name, @type, @image_url, @admission_date, @available_for_adoption]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i()
   end
 
   def update()
-    sql = "UPDATE animals SET (name, type, admission_date, available_for_adoption) = ($1, $2, $3, $4) WHERE id = $5"
-    values = [@name, @type, @admission_date, @available_for_adoption, @id]
+    sql = "UPDATE animals SET (name, type, image_url, admission_date, available_for_adoption) = ($1, $2, $3, $4, $5) WHERE id = $6"
+    values = [@name, @type, @image_url, @admission_date, @available_for_adoption, @id]
     SqlRunner.run(sql, values)
   end
 

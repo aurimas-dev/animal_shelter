@@ -23,8 +23,13 @@
   </div>
 
   <div class="form__input">
+    <label for="image-url">Image URL </label>
+    <input id="image-url" type="text" name="image_url" value="<%= @animal.image_url() %>">
+  </div>
+
+  <div class="form__input">
     <label for="admission-date">Admission date *</label>
-    <input id="admission-date" type="text" name="admission_date" value="<%= @animal.admission_date() %>" required>
+    <input id="admission-date" type="text" name="admission_date" placeholder="DD/MM/YYYY" value="<%= @animal.admission_date() %>" required>
   </div>
 
   <div class="form__input">
