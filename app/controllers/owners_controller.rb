@@ -27,3 +27,9 @@ get '/owners/:id' do
   @owned_animal = @owner.get_owned_animal()
   erb(:"/owners/show")
 end
+
+post '/owners/:id/delete' do
+  owner = Owner.find_by_id(params['id'].to_i())
+  owner.delete()
+  redirect to("/owners")
+end

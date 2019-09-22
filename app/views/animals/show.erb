@@ -24,4 +24,8 @@
       No owner
     <% end %>
   </p>
+  <a class="btn" href="/animals/<%= @animal.id %>/edit">Edit</a>
+  <form style="display: inline" action="/animals/<%= @animal.id %>/delete" method="post">
+    <input class="btn" type="submit" value="Delete">
+  </form>
 </div>
