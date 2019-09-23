@@ -77,7 +77,7 @@ class Animal
   end
 
   def self.find_by_type(type)
-    sql = "SELECT * FROM animals WHERE type = $1"
+    sql = "SELECT * FROM animals WHERE type ILIKE $1"
     values = [type]
     results = SqlRunner.run(sql, values)
     return results.map() {|animal| Animal.new(animal)}
