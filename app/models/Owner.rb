@@ -51,7 +51,7 @@ class Owner
   end
 
   def self.all()
-    sql = "SELECT * FROM owners"
+    sql = "SELECT * FROM owners ORDER BY id DESC"
     results = SqlRunner.run(sql)
     return results.map() {|owner| Owner.new(owner)}
   end

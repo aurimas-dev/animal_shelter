@@ -95,25 +95,25 @@ class Animal
   end
 
   def self.all()
-    sql = "SELECT * FROM animals"
+    sql = "SELECT * FROM animals ORDER BY id DESC"
     results = SqlRunner.run(sql)
     return results.map() {|animal| Animal.new(animal)}
   end
 
   def self.all_unavailable_for_adoption()
-    sql = "SELECT * FROM animals WHERE owner_id IS NULL AND available_for_adoption = false"
+    sql = "SELECT * FROM animals WHERE owner_id IS NULL AND available_for_adoption = false ORDER BY id DESC"
     results = SqlRunner.run(sql)
     return results.map() {|animal| Animal.new(animal)}
   end
 
   def self.all_available_for_adoption()
-    sql = "SELECT * FROM animals WHERE available_for_adoption = true"
+    sql = "SELECT * FROM animals WHERE available_for_adoption = true ORDER BY id DESC"
     results = SqlRunner.run(sql)
     return results.map() {|animal| Animal.new(animal)}
   end
 
   def self.all_adopted()
-    sql = "SELECT * FROM animals WHERE owner_id IS NOT NULL"
+    sql = "SELECT * FROM animals WHERE owner_id IS NOT NULL ORDER BY id DESC"
     results = SqlRunner.run(sql)
     return results.map() {|animal| Animal.new(animal)}
   end
