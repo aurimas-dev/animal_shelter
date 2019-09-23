@@ -24,7 +24,7 @@ end
 
 get '/owners/:id' do
   @owner = Owner.find_by_id(params["id"])
-  @owned_animal = @owner.get_owned_animal()
+  @owned_animals = @owner.get_owned_animals()
   erb(:"/owners/show")
 end
 

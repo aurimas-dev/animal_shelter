@@ -3,7 +3,8 @@ DROP TABLE IF EXISTS animals;
 
 CREATE TABLE owners (
   id SERIAL8 PRIMARY KEY,
-  name VARCHAR(255)
+  name VARCHAR(255),
+  capacity INT2
 );
 
 CREATE TABLE animals (

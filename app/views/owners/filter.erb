@@ -15,7 +15,15 @@
       <article class="grid__item profile <%= owner.get_status_class() %>">
         <div class="profile__body">
           <h3 class="profile__name" ><%= owner.name() %></h3>
-          <p>Adopted animal: <%= owner.get_owned_animal() ? owner.get_owned_animal().name() : "None" %></p>
+          <p>Adopted animal(s):
+            <% if (owner.get_owned_animals.empty?() == false) %>
+              <% owner.get_owned_animals.each() do |owned_animal| %>
+                <a href="/animals/<%= owned_animal.id() %>"><%= owned_animal.name() %></a>
+              <% end %>
+            <% else %>
+              None
+            <% end %>
+          </p>
         </div>
         <div class="profile__footer">
           <a class="btn" href="/owners/<%= owner.id() %>">Show</a>

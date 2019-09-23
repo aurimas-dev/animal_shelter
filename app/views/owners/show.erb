@@ -11,9 +11,12 @@
 
 <div class="profile-full">
   <p>Name: <%= @owner.name() %></p>
-  <p>Adopted animal:
-    <% if (@owned_animal) %>
-      <a href="/animals/<%= @owned_animal.id() %>"><%= @owned_animal.name() %></a>
+  <p>Animals capacity: <%= @owner.capacity() %></p>
+  <p>Adopted animal(s):
+    <% if (@owned_animals.empty?() == false) %>
+      <% @owned_animals.each() do |owned_animal| %>
+        <a href="/animals/<%= owned_animal.id() %>"><%= owned_animal.name() %></a>
+      <% end %>
     <% else %>
       None
     <% end %>

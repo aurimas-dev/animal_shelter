@@ -15,5 +15,10 @@
     <input id="name" type="text" name="name" value="<%= @owner.name() %>" required>
   </div>
 
+  <div>
+    <label for="capacity">Animals capacity *</label>
+    <input id="capacity" type="number" name="capacity" value="<%= @owner.capacity() %>" min="1" max="100" required>
+  </div>
+
   <button class="btn" type="submit">Save Changes</button>
 </form>

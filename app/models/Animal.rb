@@ -97,11 +97,7 @@ class Animal
     sql = "SELECT * FROM animals WHERE owner_id = $1"
     values = [owner_id]
     results = SqlRunner.run(sql, values)
-    result = results.first()
-    if (result != nil)
-      return Animal.new(result)
-    end
-    return nil
+    return results.map() {|animal| Animal.new(animal)}
   end
 
   def self.all()
