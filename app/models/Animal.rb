@@ -60,6 +60,16 @@ class Animal
     return false
   end
 
+  def get_status_class()
+    if (has_owner?() == false && @available_for_adoption == true || @available_for_adoption == 't')
+      return "status-available"
+    elsif (has_owner?())
+      return "status-adopted"
+    else
+      return "status-unavailable"
+    end
+  end
+
   def self.delete_all()
     sql = "DELETE FROM animals"
     SqlRunner.run(sql)

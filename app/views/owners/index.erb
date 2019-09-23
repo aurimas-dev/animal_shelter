@@ -1,7 +1,7 @@
 <nav class="navbar">
   <ul class="navbar__list navbar__list-b">
     <li class="navbar__li"><a class="navbar__li-anchor btn-nav-b" href="/owners/new">New</a></li>
-    <li class="navbar__li"><a class="navbar__li-anchor btn-nav-b" href="/owners/filters/available">Available</a></li>
+    <li class="navbar__li"><a class="navbar__li-anchor btn-nav-b status-available" href="/owners/filters/available">Available</a></li>
   </ul>
 </nav>
 
@@ -12,7 +12,7 @@
 <div class="grid">
   <% if @owners.any? %>
     <% @owners.each() do |owner| %>
-      <article class="grid__item profile">
+      <article class="grid__item profile <%= owner.get_status_class() %>">
         <div class="profile__body">
           <h3 class="profile__name" ><%= owner.name() %></h3>
           <p>Adopted animal: <%= owner.get_owned_animal() ? owner.get_owned_animal().name() : "None" %></p>

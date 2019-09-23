@@ -34,6 +34,14 @@ class Owner
     return Animal.find_by_owner(@id)
   end
 
+  def get_status_class()
+    if (get_owned_animal() == nil)
+      return "status-available"
+    else
+      return "status-adopted"
+    end
+  end
+
   def self.find_by_id(id)
     sql = "SELECT * FROM owners WHERE id = $1"
     values = [id]

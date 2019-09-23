@@ -1,11 +1,20 @@
 <nav class="navbar">
   <ul class="navbar__list navbar__list-b">
-    <li class="navbar__li"><a class="navbar__li-anchor btn-nav-b" href="/animals/new">New</a></li>
-    <li class="navbar__li"><a class="navbar__li-anchor btn-nav-b" href="/animals/filters/unavailable">Unavailable</a></li>
-    <li class="navbar__li"><a class="navbar__li-anchor btn-nav-b" href="/animals/filters/available">Available</a></li>
-    <li class="navbar__li"><a class="navbar__li-anchor btn-nav-b" href="/animals/filters/adopted">Adopted</a></li>
+    <li class="navbar__li">
+      <a class="navbar__li-anchor btn-nav-b" href="/animals/new">New</a>
+    </li>
+    <li class="navbar__li">
+      <a class="navbar__li-anchor btn-nav-b status-unavailable" href="/animals/filters/unavailable">Unavailable</a>
+    </li>
+    <li class="navbar__li">
+      <a class="navbar__li-anchor btn-nav-b status-available" href="/animals/filters/available">Available</a>
+    </li>
+    <li class="navbar__li">
+      <a class="navbar__li-anchor btn-nav-b status-adopted" href="/animals/filters/adopted">Adopted</a>
+    </li>
   </ul>
 </nav>
+
 
 <div class="title">
   <h2 class="title__heading">Edit <%= @animal.name %></h2>

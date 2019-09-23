@@ -1,9 +1,17 @@
 <nav class="navbar">
   <ul class="navbar__list navbar__list-b">
-    <li class="navbar__li"><a class="navbar__li-anchor btn-nav-b" href="/animals/new">New</a></li>
-    <li class="navbar__li"><a class="navbar__li-anchor btn-nav-b" href="/animals/filters/unavailable">Unavailable</a></li>
-    <li class="navbar__li"><a class="navbar__li-anchor btn-nav-b" href="/animals/filters/available">Available</a></li>
-    <li class="navbar__li"><a class="navbar__li-anchor btn-nav-b" href="/animals/filters/adopted">Adopted</a></li>
+    <li class="navbar__li">
+      <a class="navbar__li-anchor btn-nav-b" href="/animals/new">New</a>
+    </li>
+    <li class="navbar__li">
+      <a class="navbar__li-anchor btn-nav-b status-unavailable" href="/animals/filters/unavailable">Unavailable</a>
+    </li>
+    <li class="navbar__li">
+      <a class="navbar__li-anchor btn-nav-b status-available" href="/animals/filters/available">Available</a>
+    </li>
+    <li class="navbar__li">
+      <a class="navbar__li-anchor btn-nav-b status-adopted" href="/animals/filters/adopted">Adopted</a>
+    </li>
   </ul>
 </nav>
 
@@ -20,7 +28,7 @@
 <div class="grid">
   <% if @animals.any? %>
     <% @animals.each() do |animal| %>
-      <article class="grid__item profile">
+      <article class="grid__item profile <%= animal.get_status_class() %>">
         <div class="profile__header">
           <img class="profile__img"
             src="<%= animal.image_url().nil?() || animal.image_url().empty? ? '/images/default.jpeg' : animal.image_url() %>"
@@ -29,7 +37,6 @@
         <div class="profile__body">
           <h3 class="profile__name" ><%= animal.name() %></h3>
           <p>Admission date: <%= animal.admission_date() %></p>
-          <p>Adopted: <%= animal.has_owner?() ? "Yes" : "No" %></p>
         </div>
         <div class="profile__footer">
           <a class="btn" href="/animals/<%= animal.id %>">Show</a>
