@@ -31,7 +31,7 @@
   <input id="image-url" type="text" name="image_url" value="<%= @animal.image_url() %>">
 
   <label for="admission-date">Admission date *</label>
-  <input id="admission-date" type="text" name="admission_date" placeholder="DD/MM/YYYY" value="<%= @animal.admission_date() %>" required>
+  <input id="admission-date" type="date" name="admission_date" placeholder="DD/MM/YYYY" value="<%= @animal.admission_date() %>" required>
 
   <label for="available-for-adoption">Available for adoption </label>
   <select id="available-for-adoption" name="available_for_adoption">

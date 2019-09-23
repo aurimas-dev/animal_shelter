@@ -1,4 +1,5 @@
 require('pry-byebug')
+require('date')
 
 require_relative('../models/Animal.rb')
 require_relative('../models/Owner.rb')
@@ -9,6 +10,7 @@ get '/animals' do
 end
 
 get '/animals/new' do
+  @today = Date.today()
   erb(:"/animals/new")
 end
 
