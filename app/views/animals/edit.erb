@@ -25,7 +25,12 @@
   <input id="name" type="text" name="name" value="<%= @animal.name() %>" required>
 
   <label for="type">Type </label>
-  <input id="type" type="text" name="type" value="<%= @animal.type() %>">
+  <input list="type" name="type" placeholder="Search or type in..." value="<%= @animal.type() %>">
+  <datalist id="type">
+    <% @types.each do |type| %>
+      <option value="<%= type %>">
+    <% end %>
+  </datalist>
 
   <label for="image-url">Image URL </label>
   <input id="image-url" type="text" name="image_url" value="<%= @animal.image_url() %>">

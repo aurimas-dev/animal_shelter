@@ -11,6 +11,7 @@ end
 
 get '/animals/new' do
   @today = Date.today()
+  @types = Animal.get_types()
   erb(:"/animals/new")
 end
 
@@ -37,6 +38,7 @@ get '/animals/:id/edit' do
   @animal = Animal.find_by_id(params['id'].to_i())
   @owners = Owner.all_available()
   @owners.push(Owner.find_by_id(@animal.owner_id())) if @animal.has_owner?()
+  @types = Animal.get_types()
   erb(:"/animals/edit")
 end
 

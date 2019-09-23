@@ -26,7 +26,12 @@
 
 
   <label for="type">Type </label>
-  <input id="type" type="text" name="type" value="">
+  <input list="type" name="type" placeholder="Search or type in...">
+  <datalist id="type">
+    <% @types.each do |type| %>
+      <option value="<%= type %>">
+    <% end %>
+  </datalist>
 
   <label for="image-url">Image URL </label>
   <input id="image-url" type="text" name="image_url" value="">
