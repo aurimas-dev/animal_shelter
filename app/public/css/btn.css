@@ -6,6 +6,7 @@
   text-decoration: none;
   display: inline-block;
   border: 1px solid #333;
+  line-height: 14px;
 }
 
 .btn:hover {
