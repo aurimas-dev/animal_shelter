@@ -23,7 +23,7 @@ end
 
 get '/animals/search' do
   @search = params['type']
-  @animals = Animal.find_by_type(@search)
+  @animals = Animal.find_by_type_or_name(@search)
   @types = Animal.get_types()
   erb(:"/animals/search")
 end
