@@ -17,9 +17,10 @@
     <link rel="stylesheet" href="/css/search-suggestions.css">
   </head>
   <body>
-    <div class="site-identity">
+    <header class="site-identity">
       <h1 class="site-identity__name">Aurimas Animal Shelter</h1>
-    </div>
+    </header>
+    
     <nav class="container navbar">
       <ul class="navbar__list navbar__list--a">
         <li class="navbar__li"><a class="navbar__li-anchor btn-nav" href="/">Home</a></li>
@@ -27,8 +28,9 @@
         <li class="navbar__li"><a class="navbar__li-anchor btn-nav" href="/owners">Owners</a></li>
       </ul>
     </nav>
-    <div class="container">
+
+    <main class="container">
       <%= yield() %>
-    </div>
+    </main>
   </body>
 </html>
