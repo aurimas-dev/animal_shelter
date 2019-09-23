@@ -10,8 +10,10 @@
 </div>
 
 <form class="form" action="/owners/<%= @owner.id() %>" method="post">
-  <label for="name">Name *</label>
-  <input id="name" type="text" name="name" value="<%= @owner.name() %>" required>
+  <div>
+    <label for="name">Name *</label>
+    <input id="name" type="text" name="name" value="<%= @owner.name() %>" required>
+  </div>
 
   <button class="btn" type="submit">Save Changes</button>
 </form>

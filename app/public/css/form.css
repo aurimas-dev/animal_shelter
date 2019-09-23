@@ -15,7 +15,11 @@
 
 .form input,
 .form select {
-  display: block;
   margin: 0 auto 15px;
   padding: 5px 7px;
+}
+
+.form input[type="radio"] {
+  margin-left: 10px;
+  margin-right: 10px;
 }

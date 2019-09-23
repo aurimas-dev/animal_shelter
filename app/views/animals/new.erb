@@ -21,29 +21,42 @@
 </div>
 
 <form class="form" action="/animals" method="post">
-  <label for="name">Name *</label>
-  <input id="name" type="text" name="name" value="" required>
+  <div>
+    <label for="name">Name *</label>
+    <input id="name" type="text" name="name" value="" required>
+  </div>
 
+  <div>
+    <label for="type">Type </label>
+    <input list="type" name="type" placeholder="Search or type in...">
+    <datalist id="type">
+      <% @types.each do |type| %>
+        <option value="<%= type %>">
+      <% end %>
+    </datalist>
+  </div>
 
-  <label for="type">Type </label>
-  <input list="type" name="type" placeholder="Search or type in...">
-  <datalist id="type">
-    <% @types.each do |type| %>
-      <option value="<%= type %>">
-    <% end %>
-  </datalist>
+  <div>
+    <label for="image-url">Image URL </label>
+    <input id="image-url" type="text" name="image_url" value="">
+  </div>
 
-  <label for="image-url">Image URL </label>
-  <input id="image-url" type="text" name="image_url" value="">
+  <div>
+    <label for="admission-date">Admission date *</label>
+    <input id="admission-date" type="date" name="admission_date" value="<%= @today %>" required>
+  </div>
 
-  <label for="admission-date">Admission date *</label>
-  <input id="admission-date" type="date" name="admission_date" value="<%= @today %>" required>
-
-  <label for="available-for-adoption">Available for adoption </label>
-  <select id="available-for-adoption" name="available_for_adoption">
-    <option value="true">Yes</option>
-    <option value="false">No</option>
-  </select>
+  <div>
+    <label>Available for adoption *</label>
+    <label class="inline-block">
+      <input type="radio" name="available_for_adoption" value="true" required>
+      Yes
+    </label>
+    <label class="inline-block">
+      <input type="radio" name="available_for_adoption" value="false" checked required>
+      No
+    </label>
+  </div>
 
   <button class="btn" type="submit">Add Animal</button>
 </form>
