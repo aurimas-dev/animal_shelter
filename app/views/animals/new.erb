@@ -12,33 +12,24 @@
 </div>
 
 <form class="form" action="/animals" method="post">
-  <div class="form__input">
-    <label for="name">Name *</label>
-    <input id="name" type="text" name="name" value="" required>
-  </div>
+  <label for="name">Name *</label>
+  <input id="name" type="text" name="name" value="" required>
 
-  <div class="form__input">
-    <label for="type">Type </label>
-    <input id="type" type="text" name="type" value="">
-  </div>
 
-  <div class="form__input">
-    <label for="image-url">Image URL </label>
-    <input id="image-url" type="text" name="image_url" value="">
-  </div>
+  <label for="type">Type </label>
+  <input id="type" type="text" name="type" value="">
 
-  <div class="form__input">
-    <label for="admission-date">Admission date *</label>
-    <input id="admission-date" type="text" name="admission_date" value="" placeholder="DD/MM/YYYY" required>
-  </div>
+  <label for="image-url">Image URL </label>
+  <input id="image-url" type="text" name="image_url" value="">
 
-  <div class="form__input">
-    <label for="available-for-adoption">Available for adoption </label>
-    <select id="available-for-adoption" name="available_for_adoption">
-      <option value="true">Yes</option>
-      <option value="false">No</option>
-    </select>
-  </div>
+  <label for="admission-date">Admission date *</label>
+  <input id="admission-date" type="text" name="admission_date" value="" placeholder="DD/MM/YYYY" required>
 
-  <input class="btn" type="submit" name="" value="Add Animal">
+  <label for="available-for-adoption">Available for adoption </label>
+  <select id="available-for-adoption" name="available_for_adoption">
+    <option value="true">Yes</option>
+    <option value="false">No</option>
+  </select>
+
+  <button class="btn" type="submit">Add Animal</button>
 </form>

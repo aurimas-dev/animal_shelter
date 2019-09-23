@@ -8,18 +8,14 @@
   margin: 0 auto;
 }
 
-.form__input {
-  margin-bottom: 15px;
-}
-
-.form__input label {
+.form label {
   display: block;
   margin-bottom: 5px;
 }
 
-.form__input input,
-.form__input select {
-  height: 18px;
-  padding-left: 7px;
-  padding-right: 7px;
+.form input,
+.form select {
+  display: block;
+  margin: 0 auto 15px;
+  padding: 5px 7px;
 }

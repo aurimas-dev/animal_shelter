@@ -12,43 +12,31 @@
 </div>
 
 <form class="form" action="/animals/<%= @animal.id %>" method="post">
-  <div class="form__input">
-    <label for="name">Name *</label>
-    <input id="name" type="text" name="name" value="<%= @animal.name() %>" required>
-  </div>
+  <label for="name">Name *</label>
+  <input id="name" type="text" name="name" value="<%= @animal.name() %>" required>
 
-  <div class="form__input">
-    <label for="type">Type </label>
-    <input id="type" type="text" name="type" value="<%= @animal.type() %>">
-  </div>
+  <label for="type">Type </label>
+  <input id="type" type="text" name="type" value="<%= @animal.type() %>">
 
-  <div class="form__input">
-    <label for="image-url">Image URL </label>
-    <input id="image-url" type="text" name="image_url" value="<%= @animal.image_url() %>">
-  </div>
+  <label for="image-url">Image URL </label>
+  <input id="image-url" type="text" name="image_url" value="<%= @animal.image_url() %>">
 
-  <div class="form__input">
-    <label for="admission-date">Admission date *</label>
-    <input id="admission-date" type="text" name="admission_date" placeholder="DD/MM/YYYY" value="<%= @animal.admission_date() %>" required>
-  </div>
+  <label for="admission-date">Admission date *</label>
+  <input id="admission-date" type="text" name="admission_date" placeholder="DD/MM/YYYY" value="<%= @animal.admission_date() %>" required>
 
-  <div class="form__input">
-    <label for="available-for-adoption">Available for adoption </label>
-    <select id="available-for-adoption" name="available_for_adoption">
-      <option value="true" <%= "selected" if @animal.available_for_adoption() == 't' %>>Yes</option>
-      <option value="false" <%= "selected" if @animal.available_for_adoption() == 'f' %>>No</option>
-    </select>
-  </div>
+  <label for="available-for-adoption">Available for adoption </label>
+  <select id="available-for-adoption" name="available_for_adoption">
+    <option value="true" <%= "selected" if @animal.available_for_adoption() == 't' %>>Yes</option>
+    <option value="false" <%= "selected" if @animal.available_for_adoption() == 'f' %>>No</option>
+  </select>
 
-  <div class="form__input">
-    <label for="owner">Owner</label>
-    <select id="owner" name="owner_id">
-      <option value="nil" <%= "selected" if @animal.owner_id() == nil %>>No owner</option>
-      <% @owners.each do |owner| %>
-        <option value="<%= owner.id %>" <%= "selected" if owner.id() == @animal.owner_id() %>><%= owner.name() %></option>
-      <% end %>
-    </select>
-  </div>
+  <label for="owner">Owner</label>
+  <select id="owner" name="owner_id">
+    <option value="nil" <%= "selected" if @animal.owner_id() == nil %>>No owner</option>
+    <% @owners.each do |owner| %>
+      <option value="<%= owner.id %>" <%= "selected" if owner.id() == @animal.owner_id() %>><%= owner.name() %></option>
+    <% end %>
+  </select>
 
-  <input class="btn" type="submit" name="" value="Save changes">
+  <button class="btn" type="submit">Save Changes</button>
 </form>
