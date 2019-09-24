@@ -23,6 +23,8 @@
       <h1 class="site-identity__name">Aurimas Animal Shelter</h1>
     </header>
 
+    <p><%= @@settings.help() %> <%= @@settings.animals().count() %></p>
+
     <nav class="container navbar">
       <ul class="navbar__list navbar__list--a">
         <li class="navbar__li"><a class="navbar__li-anchor btn-nav" href="/">Home</a></li>
