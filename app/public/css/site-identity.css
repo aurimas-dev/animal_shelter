@@ -4,9 +4,11 @@
   align-items: center;
   border-bottom: 2px solid #333;
   background-color: #fefefe;
+  height: 50px;
 }
 
 .site-identity__name {
   padding-left: 15px;
   padding-right: 15px;
+  font-size: 18px;
 }
