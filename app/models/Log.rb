@@ -29,6 +29,13 @@ class Log
     return results.map() {|log| Log.new(log)}
   end
 
+  def self.all_by_category(category)
+    sql = "SELECT * FROM logs WHERE category = $1 ORDER BY logs DESC LIMIT 100"
+    values = [category]
+    results = SqlRunner.run(sql, values)
+    return results.map() {|log| Log.new(log)}
+  end
+
   def self.delete_all()
     sql = "DELETE FROM logs"
     SqlRunner.run(sql)
