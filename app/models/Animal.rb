@@ -52,8 +52,12 @@ class Animal
     # Compares currently instantiated (but not saved) animal vs db version
     if (owner_id.to_i() != Animal.find_by_id(@id).owner_id().to_i())
       @owner_id = owner_id > 0 ? owner_id : nil
-      @available_for_adoption = false if @owner_id.to_i() > 0
       update_owner_id()
+    end
+    # Set animal to not being available for adoption if they have an owner
+    if (owner_id.to_i() > 0)
+      @available_for_adoption = false
+      update()
     end
   end
 
