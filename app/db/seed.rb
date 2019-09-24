@@ -98,8 +98,8 @@ animal8.save()
 
 animal9 = Animal.new({
   "name" => "Kevin",
-  "type" => "dog",
-  "image_url" => "/images/dog-3.jpeg",
+  "type" => "hedgehog",
+  "image_url" => "/images/hedgehog-1.jpeg",
   "admission_date" => "2019-07-12",
   "available_for_adoption" => true
 })
