@@ -36,8 +36,7 @@ end
 
 get '/animals/:id/edit' do
   @animal = Animal.find_by_id(params['id'].to_i())
-  @owners = Owner.all_available()
-  @owners.push(Owner.find_by_id(@animal.owner_id())) if @animal.has_owner?()
+  @owners = Owner.all_available_and_include_id(@animal.owner_id())
   @types = Animal.get_types()
   erb(:"/animals/edit")
 end

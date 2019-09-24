@@ -76,4 +76,11 @@ class Owner
     return owners.select() {|owner| owner.get_owned_animals().count() < owner.capacity()}
   end
 
+  def self.all_available_and_include_id(id)
+    owners = Owner.all()
+    return owners.select() do |owner|
+      owner.get_owned_animals().count < owner.capacity() || owner.id() == id
+    end
+  end
+
 end
