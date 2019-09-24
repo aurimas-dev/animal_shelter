@@ -44,8 +44,8 @@ end
 
 post '/animals/:id' do
   animal = Animal.new(params)
+  animal.assign_owner(params['owner_id'].to_i())
   animal.update()
-  animal.assign_owner(params['owner_id'])
   redirect to("/animals/#{params['id']}")
 end
 

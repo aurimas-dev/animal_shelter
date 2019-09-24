@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS owners CASCADE;
 DROP TABLE IF EXISTS animals;
+DROP TABLE IF EXISTS logs;
 
 CREATE TABLE owners (
   id SERIAL8 PRIMARY KEY,
@@ -16,3 +17,10 @@ CREATE TABLE animals (
   available_for_adoption BOOLEAN,
   owner_id INT8 REFERENCES owners(id) ON DELETE CASCADE
 );
+
+CREATE TABLE logs (
+  id SERIAL8 PRIMARY KEY,
+  timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  category VARCHAR(255),
+  message VARCHAR(255)
+)

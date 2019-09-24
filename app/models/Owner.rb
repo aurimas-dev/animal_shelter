@@ -2,6 +2,7 @@ require('pry-byebug')
 
 require_relative('../db/SqlRunner.rb')
 require_relative('./Animal.rb')
+require_relative('./Log.rb')
 
 class Owner
 
@@ -19,18 +20,21 @@ class Owner
     values = [@name, @capacity]
     result = SqlRunner.run(sql, values)
     @id = result.first()['id'].to_i()
+    Log.action("create", "Owner #{@name} created")
   end
 
   def update()
     sql = "UPDATE owners SET (name, capacity) = ($1, $2) WHERE id = $3"
     values = [@name, @capacity, @id]
     SqlRunner.run(sql, values)
+    Log.action("update", "Owner #{@name} updated")
   end
 
   def delete()
     sql = "DELETE FROM owners WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
+    Log.action("delete", "Owner #{@name} deleted")
   end
 
   def get_owned_animals()

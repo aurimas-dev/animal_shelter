@@ -1,6 +1,8 @@
 require('pry-byebug')
 
 require_relative('../db/SqlRunner.rb')
+require_relative('./Owner.rb')
+require_relative('./Log.rb')
 
 class Animal
 
@@ -22,35 +24,37 @@ class Animal
     values = [@name, @type, @image_url, @admission_date, @available_for_adoption]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i()
+    Log.action("create", "Animal #{@name} created")
   end
 
   def update()
     sql = "UPDATE animals SET (name, type, image_url, admission_date, available_for_adoption) = ($1, $2, $3, $4, $5) WHERE id = $6"
     values = [@name, @type, @image_url, @admission_date, @available_for_adoption, @id]
     SqlRunner.run(sql, values)
+    Log.action("update", "Animal #{@name} updated")
   end
 
   def update_owner_id()
     sql = "UPDATE animals SET owner_id = $1 WHERE id = $2"
     values = [@owner_id, @id]
     SqlRunner.run(sql, values)
+    Log.action("owner change", "Animal #{@name} owner updated to #{@owner_id ? Owner.find_by_id(@owner_id).name() : "no owner"}")
   end
 
   def delete()
     sql = "DELETE FROM animals WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
+    Log.action("delete", "Animal #{@name} deleted")
   end
 
   def assign_owner(owner_id)
-    if (owner_id == 'nil')
-      @owner_id = nil
-    else
-      @owner_id = owner_id
-      @available_for_adoption = false
-      update()
+    # Compares currently instantiated (but not saved) animal vs db version
+    if (owner_id.to_i() != Animal.find_by_id(@id).owner_id().to_i())
+      @owner_id = owner_id > 0 ? owner_id : nil
+      @available_for_adoption = false if @owner_id.to_i() > 0
+      update_owner_id()
     end
-    update_owner_id()
   end
 
   def has_owner?()
