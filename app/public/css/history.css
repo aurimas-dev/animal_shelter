@@ -1,0 +1,28 @@
+.history {
+  background-color: white;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  padding: 15px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.history__ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.history__li {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 2px;
+  padding-bottom: 2px;
+}
+
+.history__date {
+  display: inline-block;
+  color: #999;
+}
+
+.history__message {
+  display: inline-block;
+}
