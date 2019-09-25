@@ -1,9 +1,11 @@
 .status-unavailable {
   box-shadow: -3px 0px 0px #dc3545;
 }
+
 .status-available {
   box-shadow: -3px 0px 0px #ffc107;
 }
+
 .status-adopted {
   box-shadow: -3px 0px 0px #28a745;
 }
