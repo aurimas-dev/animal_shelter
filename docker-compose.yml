@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+    app:
+        build: ./app
+        ports:
+            - 4567:4567
+        restart: always
+        volumes:
+            - ./app:/usr/src/app
+        depends_on:
+            - db
+    db:
+        image: postgres
+        restart: always
+        environment:
+            POSTGRES_DB: animal_shelter
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+        ports:
+            - 5432:5432
+        volumes:
+            - ./app/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    

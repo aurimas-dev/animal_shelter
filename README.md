@@ -1,18 +1,13 @@
 # Animal shelter management app
 
-An app developed as a CodeClan project. Please read [brief](./BRIEF.md) and [guidelines](./GUIDELINES.md) for more information.
+This app was developed as a CodeClan solo project. Please read [brief](./BRIEF.md) and [guidelines](./GUIDELINES.md) for more information.
 
-# Setup
+## How to start
 
-1. `cd app` cd into the app folder.
-2. `createdb animal_shelter` to create the database.
-3. `psql -d animal_shelter -f db/animal_shelter.sql` to create tables structure.
-4. `ruby db/seed.rb` to populate sample data.
-5. Access using browser on http://localhost:4567
+You need [Docker](https://www.docker.com/get-started) installed in your system.
 
-# Tested with/pre-requisites
+1. Run `docker-compose build` to build the application and `docker-compose up -d` to start.
 
-* Ruby 2.4
-* Sinatra 2.0.7
-* Minitest 5.11.3
-* PSQL 11.4
+2. Open [http://localhost:4567](http://localhost:4567).
+
+3. `docker-compose stop` to stop the application or `docker-compose down` to remove.
